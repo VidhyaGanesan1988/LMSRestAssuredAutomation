@@ -1,171 +1,153 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="13" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="28" time="13.203">
-<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve all program data in valid URL" time="4.96">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL..............passed
-When User sends GET request.................................................passed
-Then Request should be successfull with status code "200" for GET All programs.passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="25" time="15.927">
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and  valid data" time="4.326">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and valid request body.passed
+When User sends POST request for branch with valid URL and data from "PostValidDataBatch" and 0.passed
+Then Request should be successfull with status code "201" Post request valid URL.passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve all program data with invalid URL" time="0.46">
-<system-out><![CDATA[Given User sets request for Program module with invalid base URL............passed
-When User sends GET request with invalid URL................................passed
-Then Not found error message should be displayed with status code "404" for GET All programs.passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with invalid base URL  and  valid data" time="0.646">
+        <system-out><![CDATA[Given User sets request for Batch module with invalid base URL and valid request body.passed
+When User sends POST request for branch with invalid URL and data from "PostValidDataBatch" and 0.passed
+Then Bad request error message should be displayed with status code "405" for Post request with invalid URL.passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve single program data with valid program ID" time="1.385">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and valid path.passed
-When User sends GET request with valid program ID from "getsingleprogram" and 0.passed
-Then Request should be successfull with status code "200" for GET single program.passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and empty data" time="0.238">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and empty request body.passed
+When User sends POST request for branch with empty request body.............passed
+Then Bad request error message should be displayed with status code "415" for Post request with empty request body.passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve single program data with invalid program ID" time="0.246">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid path.passed
-When User sends GET request with invalid program ID.........................passed
-Then Bad request error message should be displayed with status code "400" for GET single program.passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and  invalid data" time="0.541">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request without Batch Name parameter in request body from "NobatchName" and 0.passed
+Then Bad Request error message should be displayed with status code "400"...passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve single program data with invalid input" time="0.221">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid path.passed
-When User sends GET request with invalid input..............................passed
-Then Bad request error message should be displayed with status code "400" for GET single program with invalid input.passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data" time="0.496">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with empty String value for batch name parameter in request body from "PostInvalidDataBatch" and 0.passed
+Then Bad request error message should be displayed with status code "400" invalid data.passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and valid data" time="0.494">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and valid request body.passed
-When User sends POST request with data from "postvaliddataprogram" and 2....passed
-Then Request should be successfull with status code "201" for POST request..passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 2" time="0.476">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request without Batch Description parameter from "NoBatchDescription" and 0.passed
+Then Request should be successfull with status code "201" Post request......passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with invalid base URL and valid data" time="0.44">
-<system-out><![CDATA[Given User sets request for Program module with invalid base URL and valid request body.passed
-When User sends POST request with invalid URL and data from "postvaliddataprogram" and 2.passed
-Then Bad request error message should be displayed with status code "404" for POST request with invalid URL.passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 3" time="0.454">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with empty String value for batch description parameter from "PostInvalidDataBatch" and 2.passed
+Then Request should be successfull with status code "201" Post request......passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid URL and no data" time="0.222">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and empty request body.passed
-When User sends POST request with empty request body........................passed
-Then Bad request error message should be displayed with status code "400" for POST request with empty request body.passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 4" time="0.515">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with null value for Batch Description parameter from "PostInvalidDataBatch" and 3.passed
+Then Request should be successfull with status code "201" Post request......passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data" time="0.406">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request without programName parameter in request body from "NoProgramName" and 0.passed
-Then Bad request error message should be displayed with status code "400"...passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 5" time="0.468">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request without Batch Status parameter from "NoBatchStatus" and 0.passed
+Then Bad Request error message should be displayed with status code "400"...passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 2" time="0.018">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with empty String value for programName parameter.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 3" time="0.446">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with null value for programName parameter from "RequestBodyInvalidData" and 0.passed
-Then Bad request error message should be displayed with status code "400"...passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 6" time="0.433">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with empty String value for batch status parameter from "PostInvalidDataBatch" and 4.passed
+Then Bad Request error message should be displayed with status code "400"...passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 4" time="0.401">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request without programDescription parameter from "NoProgDescription" and 0.passed
-Then Request should be successfull with status code "201"...................passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 7" time="0.431">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with null value for Batch Status parameter from "PostInvalidDataBatch" and 5.passed
+Then Bad Request error message should be displayed with status code "400"...passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 5" time="0.5">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with null value for programDescription parameter from "RequestBodyInvalidData" and 1.passed
-Then Request should be successfull with status code "201"...................passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 8" time="0.534">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request without Batch Noofclasses parameter from "NoBatchClasses" and 0.passed
+Then Bad Request error message should be displayed with status code "400"...passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 6" time="0.007">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request empty String value for programDescription parameter in the request body.pending
-Then Request should be successfull with status code "201"...................skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 7" time="0.378">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request without programStatus parameter from "NoProgStaus" and 0.passed
-Then Bad request error message should be displayed with status code "400"...passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 9" time="0.432">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with empty String value for batch classes parameter from "PostInvalidDataBatch" and 6.passed
+Then Bad Request error message should be displayed with status code "400"...passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 8" time="0.402">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with null value for programStatus parameter from "RequestBodyInvalidData" and 2.passed
-Then Bad request error message should be displayed with status code "400"...passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 10" time="0.475">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with null value for Batch Classes parameter from "PostInvalidDataBatch" and 7.passed
+Then Bad Request error message should be displayed with status code "400"...passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 9" time="0.004">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with empty string value for programStatus parameter in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 10" time="0.729">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request without creationTime parameter in the request body.passed
-Then Bad request error message should be displayed with status code "400"...passed
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 11" time="0.479">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with negative value for Batch Classes parameter from "PostInvalidDataBatch" and 8.passed
+Then Bad Request error message should be displayed with status code "400"...passed
 ]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 11" time="0.003">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request without value for creationTime parameter in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 12" time="0.005">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with creationTime parameter value as alphabets in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 13" time="0.004">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with creationTime parameter value as special characters in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 14" time="0.003">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with creationTime parameter value as Date(yyyy-mm-dd) format in the request body.pending
-Then Request should be successfull with status code "201"...................skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 15" time="0.006">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with lastMOdTime parameter value as numbers in the request body.pending
-Then Request should be successfull with status code "201"...................skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 16" time="0.005">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request without lastModTime parameter in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 17" time="0.004">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with lastModTime parameter value as empty string in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 18" time="0.01">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST requestwith lastModTime parameter value as alphabets in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 19" time="0.004">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST requestwith lastModTime parameter value as special characters in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 20" time="0.009">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST requestwith lastModTime parameter value as Date(yyyy-mm-dd) format in the request body.pending
-Then Request should be successfull with status code "201"...................skipped
-]]></failure>
-</testcase>
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 12" time="0.521">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request without program ID parameter from "NoProgramId" and 0.passed
+Then Bad Request error message should be displayed with status code "400"...passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 13" time="0.416">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with numbers in string format for Program Id parameter from "PostInvalidDataBatch" and 9.passed
+Then Bad Request error message should be displayed with status code "400"...passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 14" time="0.408">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request without value for Program Id parameter from "PostInvalidDataBatch" and 10.passed
+Then Bad Request error message should be displayed with status code "400"...passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 15" time="0.399">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with negative value for Program ID parameter from "PostInvalidDataBatch" and 11.passed
+Then Bad Request error message should be displayed with status code "400"...passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 16" time="0.39">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with null value for Program ID parameter from "PostInvalidDataBatch" and 12.passed
+Then Bad Request error message should be displayed with status code "400"...passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 17" time="0.392">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with special characters for Program ID parameter from "PostInvalidDataBatch" and 12.passed
+Then Bad Request error message should be displayed with status code "400"...passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 18" time="0.362">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request without program Name parameter from "PostValidDataBatch" and 0.passed
+Then Request should be successfull with status code "201" Post request......passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 19" time="0.402">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request without value for program Name parameter from "PostValidDataBatch" and 0.passed
+Then Request should be successfull with status code "201" Post request......passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 20" time="0.384">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with null value for program Name parameter from "PostValidDataBatch" and 1.passed
+Then Request should be successfull with status code "201" Post request......passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Batch-POST Feature" name="Verify POST request to post data into branch with valid base URL  and invalid data 21" time="0.43">
+        <system-out><![CDATA[Given User sets request for Batch module with valid base URL and invalid data.passed
+When User sends POST request with special characters for program Name parameter from "PostValidDataBatch" and 2.passed
+Then Request should be successfull with status code "201" Post request......passed
+]]></system-out>
+    </testcase>
 </testsuite>

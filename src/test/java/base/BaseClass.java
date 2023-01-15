@@ -17,7 +17,6 @@ public class BaseClass {
 	
 	public static final Logger logger = LogManager.getLogger(BaseClass.class.getName());
 
-
 	public String randomestring()
 	{
 		String generateinvalidID=RandomStringUtils.randomNumeric(4);
@@ -36,5 +35,6 @@ public class BaseClass {
 				excelReader.getData(Config.EXCEL, SheetName).get(Rownumber);
 		return Data;
 	}
+
 
 }
