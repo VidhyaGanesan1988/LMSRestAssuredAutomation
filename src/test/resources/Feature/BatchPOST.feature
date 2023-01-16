@@ -46,18 +46,8 @@ Examples:
     Examples: 
       | SheetName     | Rownumber |
       | PostInvalidDataBatch   |     0     |		
- #       Throwing Java Null Pointer Exception     
-#      @Batch_Post_006
-#      Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
-#		Given User sets request for Batch module with valid base URL and invalid data
-#    When User sends POST request with null value for Batch Name parameter from "<SheetName>" and <Rownumber>
-#    Then Bad request error message should be displayed with status code "400" 
-#    
-#Examples: 
-#      | SheetName       | Rownumber |
-#      | PostInvalidDataBatch   |     1     |
-      
-      @Batch_Post_007
+       
+      @Batch_Post_006
       Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request without Batch Description parameter from "<SheetName>" and <Rownumber>
@@ -67,7 +57,7 @@ Examples:
       | SheetName           | Rownumber |
       | NoBatchDescription  |     0     |
       
-      @Batch_Post_008     
+      @Batch_Post_007     
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
     Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with empty String value for batch description parameter from "<SheetName>" and <Rownumber>
@@ -75,9 +65,9 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
     
     Examples: 
       | SheetName       | Rownumber |
-      | PostInvalidDataBatch   |     2     |
+      | PostInvalidDataBatch   |     1     |
       
-      @Batch_Post_009    
+      @Batch_Post_008    
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with null value for Batch Description parameter from "<SheetName>" and <Rownumber>
@@ -85,9 +75,9 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
     
     Examples: 
       | SheetName       | Rownumber |
-      | PostInvalidDataBatch   |     3     |
+      | PostInvalidDataBatch   |     2     |
        
-      @Batch_Post_010      
+      @Batch_Post_009      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 	Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request without Batch Status parameter from "<SheetName>" and <Rownumber>
@@ -97,7 +87,7 @@ Examples:
       | SheetName           | Rownumber |
       | NoBatchStatus  |     0     |
       
-      @Batch_Post_011      
+      @Batch_Post_010      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
     Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with empty String value for batch status parameter from "<SheetName>" and <Rownumber>
@@ -105,9 +95,10 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
 
     Examples: 
       | SheetName       | Rownumber |
-      | PostInvalidDataBatch   |     4     |
+      | PostInvalidDataBatch   |     3     |
+
  #Supposed to throw error but taking null as string     
-      @Batch_Post_012    
+      @Batch_Post_011    
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 	Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with null value for Batch Status parameter from "<SheetName>" and <Rownumber>
@@ -115,9 +106,9 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
     
 Examples: 
       | SheetName              | Rownumber |
-      | PostInvalidDataBatch   |     5     |
-#    
-@Batch_Post_013      
+      | PostInvalidDataBatch   |     4     |
+    
+@Batch_Post_012      
       Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request without Batch Noofclasses parameter from "<SheetName>" and <Rownumber>
@@ -126,8 +117,8 @@ Examples:
 Examples: 
       | SheetName           | Rownumber |
       | NoBatchClasses  |     0     |
-  #       Throwing Java Null Pointer Exception        
-      @Batch_Post_014      
+       
+      @Batch_Post_013      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
     Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with empty String value for batch classes parameter from "<SheetName>" and <Rownumber>
@@ -135,9 +126,9 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
 	
 Examples: 
       | SheetName              | Rownumber |
-      | PostInvalidDataBatch   |     6     |
+      | PostInvalidDataBatch   |     5     |
       
-      @Batch_Post_015    
+      @Batch_Post_014    
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with null value for Batch Classes parameter from "<SheetName>" and <Rownumber>
@@ -145,9 +136,9 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
     
 Examples: 
       | SheetName              | Rownumber |
-      | PostInvalidDataBatch   |     7     |
+      | PostInvalidDataBatch   |     6     |
       
-      @Batch_Post_016      
+      @Batch_Post_015      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with negative value for Batch Classes parameter from "<SheetName>" and <Rownumber>
@@ -155,10 +146,9 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
     
 Examples: 
       | SheetName              | Rownumber |
-      | PostInvalidDataBatch   |     8     |  
-      
+      | PostInvalidDataBatch   |     7     |        
    
-    @Batch_Post_017      
+    @Batch_Post_016      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request without program ID parameter from "<SheetName>" and <Rownumber>
@@ -167,8 +157,8 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
 Examples: 
       | SheetName           | Rownumber |
       | NoProgramId  |     0     |
-  #       Throwing Java Null Pointer Exception      
-     @Batch_Post_018      
+        
+     @Batch_Post_017      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
     Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with numbers in string format for Program Id parameter from "<SheetName>" and <Rownumber>
@@ -176,9 +166,9 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
 
 Examples: 
       | SheetName              | Rownumber |
-      | PostInvalidDataBatch   |     9     |        
+      | PostInvalidDataBatch   |     8     |        
       
-      @Batch_Post_019    
+      @Batch_Post_018    
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 	Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request without value for Program Id parameter from "<SheetName>" and <Rownumber>
@@ -186,9 +176,9 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
     
 Examples: 
       | SheetName     | Rownumber |
-      | PostInvalidDataBatch   |     10     |
+      | PostInvalidDataBatch   |     9     |
       
-        @Batch_Post_020      
+        @Batch_Post_019      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with negative value for Program ID parameter from "<SheetName>" and <Rownumber>
@@ -196,9 +186,9 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
     
 Examples: 
       | SheetName              | Rownumber |
-      | PostInvalidDataBatch   |     11     | 
+      | PostInvalidDataBatch   |     10     | 
       
-      @Batch_Post_021      
+      @Batch_Post_020      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with null value for Program ID parameter from "<SheetName>" and <Rownumber>
@@ -206,9 +196,9 @@ Scenario Outline: Verify POST request to post data into branch with valid base U
     
 Examples: 
       | SheetName              | Rownumber |
-      | PostInvalidDataBatch   |     12     |
+      | PostInvalidDataBatch   |     11     |
       
-        @Batch_Post_022      
+        @Batch_Post_021      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with special characters for Program ID parameter from "<SheetName>" and <Rownumber>
@@ -218,7 +208,7 @@ Examples:
       | SheetName              | Rownumber |
       | PostInvalidDataBatch   |     12     | 
       
-        @Batch_Post_023      
+        @Batch_Post_022      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request without program Name parameter from "<SheetName>" and <Rownumber>
@@ -228,7 +218,7 @@ Examples:
       | SheetName           | Rownumber |
       | PostValidDataBatch  |     0     |
       
-        @Batch_Post_024      
+        @Batch_Post_023      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request without value for program Name parameter from "<SheetName>" and <Rownumber>
@@ -238,7 +228,7 @@ Examples:
       | SheetName           | Rownumber |
       | PostValidDataBatch  |     0     |
 	  
-	  @Batch_Post_025      
+	  @Batch_Post_024      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with null value for program Name parameter from "<SheetName>" and <Rownumber>
@@ -248,7 +238,7 @@ Examples:
       | SheetName           | Rownumber |
       | PostValidDataBatch  |     1     |
 	  
-	  @Batch_Post_026      
+	  @Batch_Post_025      
 Scenario Outline: Verify POST request to post data into branch with valid base URL  and invalid data
 		Given User sets request for Batch module with valid base URL and invalid data
     When User sends POST request with special characters for program Name parameter from "<SheetName>" and <Rownumber>

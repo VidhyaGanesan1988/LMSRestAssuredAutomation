@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 				glue = {"stepDefinitions"},
 				monochrome = true, 
 				dryRun = false, 
-				tags = "@Batch" ,
+				//tags = "@Batch" ,
 				plugin = { "pretty",
 				"json:target/cucumber-reports/reports.json", 
 				"junit:target/cucumber-reports/Cucumber.xml",

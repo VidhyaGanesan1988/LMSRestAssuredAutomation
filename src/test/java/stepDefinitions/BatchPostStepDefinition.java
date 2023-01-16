@@ -10,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import utilities.Config;
@@ -48,6 +49,7 @@ public class BatchPostStepDefinition extends BaseClass {
 			body.put("batchStatus", batchStatus);
 			body.put("batchNoOfClasses", batchNoOfClasses);
 			body.put("programId", programId);
+
 			
 			response = this.request
 					.body(body.toJSONString())
@@ -65,6 +67,16 @@ public class BatchPostStepDefinition extends BaseClass {
 		if (Poststatuscode == 201) {
 			response.then().statusCode(Integer.parseInt(statuscode));
 			logger.info("Post Request Successful");
+			
+			//use delete request to delete the posted data//
+			JsonPath js = response.jsonPath();
+			int batchId = js.getInt("batchId");
+			System.out.println("batchId:"+batchId);
+			response = this.request
+					.when()
+					.delete(Config.DeleteBatch_URL + "/" + batchId)
+					.then()
+					.log().all().extract().response();
 		}	
 		else 
 			logger.info("Post Request unsuccessful with status code " + statuscode);
@@ -205,10 +217,20 @@ public class BatchPostStepDefinition extends BaseClass {
 		System.out.println("Poststatuscode : " +Poststatuscode);
 		if (Poststatuscode == 201) {
 			response.then().statusCode(Integer.parseInt(statuscode));
-			logger.info("Post Request Successful");
+			logger.info("Post Request Successful with statuscode " + response.getStatusCode());
+			
+			//use delete request to delete the posted data//
+			JsonPath js = response.jsonPath();
+			int batchId = js.getInt("batchId");
+			System.out.println("batchId:"+batchId);
+			response = this.request
+					.when()
+					.delete(Config.DeleteBatch_URL + "/" + batchId)
+					.then()
+					.log().all().extract().response();
 		}	
 		else 
-			logger.info("Post Request unsuccessful with status code " + statuscode);
+			logger.info("Post Request unsuccessful with status code " + response.getStatusCode());
 	}
 	
 	@When("User sends POST request with empty String value for batch description parameter from {string} and {int}")
@@ -222,13 +244,13 @@ public class BatchPostStepDefinition extends BaseClass {
 		createBatchPostRequest(SheetName, Rownumber);
 		logger.info("Post request sent with null value for batchDescription parameter");
 	}
-// Need to check	
+	
 	@When("User sends POST request without Batch Status parameter from {string} and {int}")
 	public void user_sends_post_request_without_batch_status_parameter_from_and(String SheetName, Integer Rownumber) throws InvalidFormatException, IOException {
 		createBatchPostRequest(SheetName, Rownumber);
 		logger.info("Post request sent without  batchStatus parameter");
 	}
-	// Need to check		
+		
 	@When("User sends POST request with empty String value for batch status parameter from {string} and {int}")
 	public void user_sends_post_request_with_empty_string_value_for_batch_status_parameter_from_and(String SheetName, Integer Rownumber) throws InvalidFormatException, IOException {
 		createBatchPostRequest(SheetName, Rownumber);
@@ -239,6 +261,16 @@ public class BatchPostStepDefinition extends BaseClass {
 	public void user_sends_post_request_with_null_value_for_batch_status_parameter_from_and(String SheetName, Integer Rownumber) throws InvalidFormatException, IOException {
 		createBatchPostRequest(SheetName, Rownumber);
 		logger.info("Post request sent with null value for  batchStatus parameter");
+		
+		//use delete request to delete the posted data//
+		JsonPath js = response.jsonPath();
+		int batchId = js.getInt("batchId");
+		System.out.println("batchId:"+batchId);
+		response = this.request
+				.when()
+				.delete(Config.DeleteBatch_URL + "/" + batchId)
+				.then()
+				.log().all().extract().response();
 	}
 	
 	@When("User sends POST request without Batch Noofclasses parameter from {string} and {int}")
@@ -246,7 +278,7 @@ public class BatchPostStepDefinition extends BaseClass {
 		createBatchPostRequest(SheetName, Rownumber);
 		logger.info("Post request sent without  batchNoOfClasses parameter");
 	}
-	//Need to check
+	
 	@When("User sends POST request with empty String value for batch classes parameter from {string} and {int}")
 	public void user_sends_post_request_with_empty_string_value_for_batch_classes_parameter_from_and(String SheetName, Integer Rownumber) throws InvalidFormatException, IOException {
 		createBatchPostRequest(SheetName, Rownumber);
