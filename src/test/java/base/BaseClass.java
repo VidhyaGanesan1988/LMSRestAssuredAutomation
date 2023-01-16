@@ -14,14 +14,22 @@ import utilities.Config;
 import utilities.ExcelReader;
 
 public class BaseClass {
-	
+
 	public static final Logger logger = LogManager.getLogger(BaseClass.class.getName());
 
-	public String randomestring()
+	public static String randomestring()
+
 	{
-		String generateinvalidID=RandomStringUtils.randomNumeric(4);
+		String generateinvalidID=RandomStringUtils.randomNumeric(3);
 		return(generateinvalidID);
 	}
+	
+	public static String DynamicprogName () {
+		String name = "Jan23-NinjaCreators-SDET-" + randomestring();
+		return(name);
+	}
+	
+	
 	
 	public static String Timestamp() {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");

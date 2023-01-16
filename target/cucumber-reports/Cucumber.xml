@@ -1,171 +1,159 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="13" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="28" time="13.203">
-<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve all program data in valid URL" time="4.96">
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="25" time="18.38">
+<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve all program data in valid URL" time="5.055">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL..............passed
 When User sends GET request.................................................passed
 Then Request should be successfull with status code "200" for GET All programs.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve all program data with invalid URL" time="0.46">
+<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve all program data with invalid URL" time="0.469">
 <system-out><![CDATA[Given User sets request for Program module with invalid base URL............passed
 When User sends GET request with invalid URL................................passed
 Then Not found error message should be displayed with status code "404" for GET All programs.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve single program data with valid program ID" time="1.385">
+<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve single program data with valid program ID" time="2.297">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and valid path.passed
 When User sends GET request with valid program ID from "getsingleprogram" and 0.passed
 Then Request should be successfull with status code "200" for GET single program.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve single program data with invalid program ID" time="0.246">
+<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve single program data with invalid program ID" time="0.236">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid path.passed
 When User sends GET request with invalid program ID.........................passed
 Then Bad request error message should be displayed with status code "400" for GET single program.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve single program data with invalid input" time="0.221">
+<testcase classname="Program-Get Requests" name="Verifying GET request to retrieve single program data with invalid input" time="0.218">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid path.passed
 When User sends GET request with invalid input..............................passed
 Then Bad request error message should be displayed with status code "400" for GET single program with invalid input.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and valid data" time="0.494">
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and valid data" time="1.739">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and valid request body.passed
-When User sends POST request with data from "postvaliddataprogram" and 2....passed
+When User sends POST request with data from "postvaliddataprogram" and 0....passed
 Then Request should be successfull with status code "201" for POST request..passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with invalid base URL and valid data" time="0.44">
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with invalid base URL and valid data" time="0.656">
 <system-out><![CDATA[Given User sets request for Program module with invalid base URL and valid request body.passed
-When User sends POST request with invalid URL and data from "postvaliddataprogram" and 2.passed
+When User sends POST request with invalid URL and data from "postvaliddataprogram" and 1.passed
 Then Bad request error message should be displayed with status code "404" for POST request with invalid URL.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid URL and no data" time="0.222">
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid URL and no data" time="0.197">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and empty request body.passed
 When User sends POST request with empty request body........................passed
 Then Bad request error message should be displayed with status code "400" for POST request with empty request body.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data" time="0.406">
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data" time="0.437">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request without programName parameter in request body from "NoProgramName" and 0.passed
+When User sends POST request without programName parameter in request body..passed
 Then Bad request error message should be displayed with status code "400"...passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 2" time="0.018">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with empty String value for programName parameter.pending
-Then Bad request error message should be displayed with status code "400"...skipped
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 2" time="0.266">
+<failure message="" type="java.lang.NullPointerException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST request with null value for programName parameter in the request body.passed
+Then Bad request error message should be displayed with status code "400" for null value in programName parameter.failed
+
+StackTrace:
+java.lang.NullPointerException
+	at io.restassured.path.json.JsonPath.getInt(JsonPath.java:245)
+	at stepDefinitions.ProgramPostStepdefinition.bad_request_error_message_should_be_displayed_with_status_code_for_null_value_in_program_name_parameter(ProgramPostStepdefinition.java:220)
+	at ✽.Bad request error message should be displayed with status code "400" for null value in programName parameter(file:///C:/Users/admin/eclipse-workspace/LMSRestAssuredAutomation/./src/test/resources/Feature/ProgramPOST.feature:34)
 ]]></failure>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 3" time="0.446">
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 3" time="0.475">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with null value for programName parameter from "RequestBodyInvalidData" and 0.passed
-Then Bad request error message should be displayed with status code "400"...passed
+When User sends POST request without programDescription parameter in the request body.passed
+Then Request should be successfull with status code "201" for no programDescription parameter.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 4" time="0.401">
-<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request without programDescription parameter from "NoProgDescription" and 0.passed
-Then Request should be successfull with status code "201"...................passed
-]]></system-out>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 5" time="0.5">
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 4" time="0.755">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
 When User sends POST request with null value for programDescription parameter from "RequestBodyInvalidData" and 1.passed
 Then Request should be successfull with status code "201"...................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 6" time="0.007">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request empty String value for programDescription parameter in the request body.pending
-Then Request should be successfull with status code "201"...................skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 7" time="0.378">
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 5" time="0.369">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
 When User sends POST request without programStatus parameter from "NoProgStaus" and 0.passed
 Then Bad request error message should be displayed with status code "400"...passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 8" time="0.402">
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 6" time="0.405">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
 When User sends POST request with null value for programStatus parameter from "RequestBodyInvalidData" and 2.passed
 Then Bad request error message should be displayed with status code "400"...passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 9" time="0.004">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with empty string value for programStatus parameter in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
-</testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 10" time="0.729">
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 7" time="0.629">
 <system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
 When User sends POST request without creationTime parameter in the request body.passed
 Then Bad request error message should be displayed with status code "400"...passed
 ]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 11" time="0.003">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request without value for creationTime parameter in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 8" time="0.232">
+<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST request without value for creationTime parameter in the request body.passed
+Then Bad request error message should be displayed with status code "400"...passed
+]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 12" time="0.005">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with creationTime parameter value as alphabets in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 9" time="0.19">
+<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST request with creationTime parameter value as alphabets in the request body.passed
+Then Bad request error message should be displayed with status code "400"...passed
+]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 13" time="0.004">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with creationTime parameter value as special characters in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 10" time="0.213">
+<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST request with creationTime parameter value as special characters in the request body.passed
+Then Bad request error message should be displayed with status code "400"...passed
+]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 14" time="0.003">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with creationTime parameter value as Date(yyyy-mm-dd) format in the request body.pending
-Then Request should be successfull with status code "201"...................skipped
-]]></failure>
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 11" time="0.503">
+<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST request with creationTime parameter value as Date(yyyy-mm-dd) format in the request body.passed
+Then Request should be successfull with status code "201" for timestamp parameter in date format.passed
+]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 15" time="0.006">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with lastMOdTime parameter value as numbers in the request body.pending
-Then Request should be successfull with status code "201"...................skipped
-]]></failure>
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 12" time="0.226">
+<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST request with lastMOdTime parameter value as numbers in the request body.passed
+Then Request should be successfull with status code "201"...................passed
+]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 16" time="0.005">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request without lastModTime parameter in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 13" time="0.219">
+<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST request without lastModTime parameter in the request body.passed
+Then Bad request error message should be displayed with status code "400"...passed
+]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 17" time="0.004">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST request with lastModTime parameter value as empty string in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 14" time="0.229">
+<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST request with lastModTime parameter value as empty string in the request body.passed
+Then Bad request error message should be displayed with status code "400"...passed
+]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 18" time="0.01">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST requestwith lastModTime parameter value as alphabets in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 15" time="0.222">
+<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST requestwith lastModTime parameter value as alphabets in the request body.passed
+Then Bad request error message should be displayed with status code "400"...passed
+]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 19" time="0.004">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST requestwith lastModTime parameter value as special characters in the request body.pending
-Then Bad request error message should be displayed with status code "400"...skipped
-]]></failure>
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 16" time="0.231">
+<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST requestwith lastModTime parameter value as special characters in the request body.passed
+Then Bad request error message should be displayed with status code "400"...passed
+]]></system-out>
 </testcase>
-<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 20" time="0.009">
-<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
-When User sends POST requestwith lastModTime parameter value as Date(yyyy-mm-dd) format in the request body.pending
-Then Request should be successfull with status code "201"...................skipped
-]]></failure>
+<testcase classname="Program-POST Requests" name="Verify POST request to post data into program with valid base URL and invalid data 17" time="0.901">
+<system-out><![CDATA[Given User sets request for Program module with valid base URL and invalid data.passed
+When User sends POST request with lastModTime parameter value as Date format from "LastModDateFormat" and 0.passed
+Then Request should be successfull with status code "201" for timestamp parameter in date format.passed
+]]></system-out>
 </testcase>
 </testsuite>

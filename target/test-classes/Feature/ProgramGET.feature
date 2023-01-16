@@ -1,5 +1,5 @@
 Feature: Program-Get Requests
-
+@Get1
   Scenario: Verifying GET request to retrieve all program data in valid URL
     Given User sets request for Program module with valid base URL
     When User sends GET request 
